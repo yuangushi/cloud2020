@@ -16,9 +16,9 @@ public class PaymentController {
 
     @PostMapping(value="/payment/create")
     @ResponseBody
-    public CommonResult create(Payment payment){
+    public CommonResult<Payment> create(@RequestBody Payment payment){
         int result = paymentService.create(payment);
-        log.info("***插入结果："+result);
+        log.info("***插入结果："+result+":aa");
         if(result>0){
             return new CommonResult(200,"插入数据库成功",result);
         }else{
@@ -32,7 +32,7 @@ public class PaymentController {
         Payment payment = paymentService.getPaymentById(id);
         log.info("***查询结果："+payment);
         if(payment!=null){
-            return new CommonResult(200,"插入数据库成功",payment);
+            return new CommonResult(200,"查询成功",payment);
         }else{
             return new CommonResult(444,"没有对应记录，查询ID是:"+id,null);
         }
