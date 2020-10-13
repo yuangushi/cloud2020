@@ -19,6 +19,14 @@ public class PaymentServiceImpl implements PaymentService {
         return paymentDao.create(payment);
     }
 
+    /**
+     * 功能描述: <br>
+     * 〈〉
+     * @Param: [id]
+     * @Return: com.atguigu.springcloud.entities.Payment
+     * @Author: Administrator
+     * @Date: 2020/10/9 11:40
+     */
     @Override
     public Payment getPaymentById(Long id) {
         return paymentDao.getPaymentById(id);
